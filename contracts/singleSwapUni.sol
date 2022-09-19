@@ -26,10 +26,10 @@ contract singleSwapUni {
     function swapExactInputSingle(uint256 amountIn) external returns (uint256 amountOut) {
         // msg.sender must approve this contract
 
-        // Transfer the specified amount of DAI to this contract.
+        // Transfer the specified amount of WETH to this contract.
         TransferHelper.safeTransferFrom(WETH9, msg.sender, address(this), amountIn);
 
-        // Approve the router to spend DAI.
+        // Approve the router to spend WETH.
         TransferHelper.safeApprove(WETH9, address(swapRouter), amountIn);
 
         // Naively set amountOutMinimum to 0.
